@@ -1,0 +1,14 @@
+.works {
+    &__title {
+        margin: 0 0 25px 0;
+    }
+    &__item {
+        padding: 0 0 47px 0;
+        margin: 0 0 43px 0;
+    }
+    &__items {
+        *:last-child {
+            margin-bottom: 0;
+        }
+    }
+}

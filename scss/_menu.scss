@@ -1,0 +1,121 @@
+.menu__link {
+    font-family: Heebo;
+    font-weight: 500;
+    font-size: 16px;
+    text-decoration: none;
+    color: #000000;
+    &:hover {
+        color: #FF6464;
+    }
+    &_active {
+        color: #FF6464;
+    }
+}
+
+@media (min-width: 767px) {
+    .menu {
+        &__list {
+            height: 70px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        &__item {
+            padding: 0 33px 0 0;
+        }
+        &__link {
+            font-size: 20px;
+        }
+        &__icon {
+            display: none;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .menu {
+        height: 50px;
+        display: flex;
+        justify-content: flex-end;
+        &__nav {
+            position: fixed;
+            left: -100%;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            padding: 100px 30px 0px 30px;
+            overflow: auto;
+            transition: left 0.3s ease 0s;
+            z-index: 4;
+            &._active {
+                left: 0;
+            }
+        }
+        &__list {
+            width: 100%;
+            li {
+                margin: 0 0 30px 0;
+                display: flex;
+                justify-content: center;
+                &:last-child {
+                    margin: 0;
+                }
+            }
+        }
+        &__link {
+            padding: 10px 0;
+            color: #FFF;
+            font-size: 30px;
+        }
+        &__icon {
+            margin: 5px;
+            z-index: 5;
+            display: block;
+            position: relative;
+            width: 30px;
+            height: 20px;
+            cursor: pointer;
+            &._active {
+                &::before,
+                &::after,
+                span {
+                    background: #FFF;
+                }
+                span {
+                    transform: scale(0) translate(0, -50%);
+                }
+                &::before {
+                    bottom: 50%;
+                    transform: rotate(45deg) translate(0, 50%);
+                }
+                &::after {
+                    top: 50%;
+                    transform: rotate(-45deg) translate(0, -50%);
+                }
+            }
+            &::before,
+            &::after,
+            span {
+                left: 0;
+                position: absolute;
+                height: 10%;
+                width: 100%;
+                transition: all 0.3s ease 0s;
+                background-color: #21243D;
+            }
+            &::before {
+                content: "";
+                bottom: 0;
+            }
+            &::after {
+                content: "";
+                top: 0;
+            }
+            span {
+                top: 50%;
+                transform: scale(1) translate(0, -50%);
+            }
+        }
+    }
+}
